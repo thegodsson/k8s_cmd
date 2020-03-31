@@ -58,3 +58,54 @@
    58  git commit -m "first commit" 
    59  history 
    60  history >> k8s_cmd.txt
+   61  vim k8s_cmd.txt 
+   62  git commit -m "first commit" 
+   63  git add k8s_cmd.txt 
+   64  git commit -m "first commit" 
+   65  git remote add origin https://github.com/thegodsson/k8s_cmd.git
+   66  git push -u origin master
+   67  kubectl get deploy
+   68  vim k8s_cmd.txt 
+   69  kubectl exec -ti monnginx-6dc74b5cd9-686ww /bin/bash
+   70  kubectl scale deploy monnginx --replicas=2
+   71  kubectl get pods
+   72  kubectl get deploy
+   73  kubectl get pods
+   74  kubectl exec -ti monnginx-6dc74b5cd9-w4sxv /bin/bash
+   75  while true; do curl 192.168.56.102:31190; done
+   76  kubectl scale deploy monnginx --replicas=3
+   77  kubectl get pods
+   78  kubectl exec -ti monnginx-6dc74b5cd9-h65ns /bin/bash
+   79  while true; do curl 192.168.56.102:31190; done
+   80  kubectl scale deploy monnginx --replicas=1
+   81  kubectl get pods
+   82  kubectl autoscale deployment monnginx --min 1 --max 5
+   83  kubectl get pods
+   84  while true; do curl 192.168.56.102:31190; done
+   85  kubectl get nodes
+   86  kubectl get nodes -o wide
+   87  kubectl describe nodes kubemasterhome
+   88  kubectl describe nodes kubmasterhome
+   89  kubectl describe nodes kubmasterhome | more
+   90  kubectl get componentstatuses 
+   91  kubectl get daemonsets.apps -n kube-system 
+   92  kubectl get pods
+   93  kubectl get deploy
+   94  kubectl get pods --all-namespaces 
+   95  kubectl get pods -n kube-system 
+   96  kubectl get service
+   97  kubectl get services
+   98  kubectl get deploy
+   99  kubectl get deploy -n kube-system 
+  100  kubectl get deploy --all-namespaces 
+  101  kubectl get deploy --all-namespaces -o wide
+  102  kubectl logs monnginx-6dc74b5cd9-686ww 
+  103  kubectl get pods
+  104* kubectl log
+  105  kubectl logs -f monnginx-6dc74b5cd9-686ww 
+  106  kubectl get events monnginx
+  107  kubectl get events monnginx-6dc74b5cd9-686ww
+  108  kubectl describe monnginx-6dc74b5cd9-686ww
+  109  kubectl describe pods monnginx-6dc74b5cd9-686ww
+  110  history | more
+  111  history > k8s_cmd.txt 
