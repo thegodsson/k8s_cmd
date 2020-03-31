@@ -1,0 +1,60 @@
+    1  docker ps
+    2  swapoff -a
+    3  vim /etc/fstab 
+    4  mount -a
+    5  apt-get update && apt-get install -y apt-transport-https curl
+    6  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+    7  sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+    8  apt-get update
+    9  sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+   10  systemctl enable kubelet
+   11  kubeadm init --apiserver-advertise-address=192.168.56.101 --node-name $HOSTNAME --pod-network-cidr=10.244.0.0/16
+   12  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   13  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   14  sysctl net.bridge.bridge-nf-call-iptables=1
+   15  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+   16  kubectl get pod --all-namespaces
+   17  kubectl edit cm -n kube-system kube-flannel-cfg
+   18  kubectl get pod --all-namespaces
+   19  kubectl edit cm -n kube-system kube-flannel-cfg
+   20  kubectl get pod --all-namespaces
+   21  kubectl get nodes
+   22  kubectl get pod --all-namespaces
+   23  kubectl get nodes
+   24  kubectl get pod --all-namespaces
+   25  kubectl get nodes
+   26  docker ps
+   27  kubectl get nodes
+   28  kubectl get nodes -o wide
+   29  vim /etc/hosts
+   30  kubectl get pods
+   31  kubectl get nodes
+   32  kubectl get pods -n kube-system
+   33  kubectl delete pods kube-flannel-ds-amd64-knms4 -n kube-system
+   34  kubectl delete pods kube-flannel-ds-amd64-xlj7k -n kube-system
+   35  kubectl get pods -n kube-system
+   36  kubectl get nodes -o wide
+   37  apt-get install bash-completion
+   38  echo "source <(kubectl completion bash)" >> ~/.bashrc
+   39  source .bashrc 
+   40  kubectl run myshell -it --image busybox -- sh
+   41  kubectl get pods
+   42  kubectl delete pods myshell
+   43  kubectl get pods
+   44  kubectl get pods -n kube-system
+   45  kubectl get pods
+   46  kubectl create deployment monnginx --image nginx
+   47  kubectl get deploy
+   48  kubectl get pods
+   49  kubectl describes pods
+   50  kubectl describes pods monnginx-6dc74b5cd9-686ww
+   51  kubectl describes deploy monnginx
+   52  kubectl describe deploy monnginx
+   53  kubectl describe pods monnginx-6dc74b5cd9-686ww
+   54  kubectl get pods
+   55  kubectl get deploy
+   56  kubectl create service nodeport monnginx --tcp=8080:80
+   57  git init
+   58  git commit -m "first commit" 
+   59  history 
+   60  history >> k8s_cmd.txt
